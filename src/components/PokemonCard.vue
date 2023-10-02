@@ -12,35 +12,41 @@ defineProps({
 </script>
 
 <template>
-  <div class="pokemon-card">
-    <v-card
-      class="mx-auto"
-      max-width="280"
-    >
-      <v-img
-        :src="pokemon.picture"
-        height="280px"
-        class="picture-pokemon-card-background"
-        cover
-      ></v-img>
+  <router-link :to="`/pokemon/${pokemon.id}`" class="link-no-deco">
+    <div class="pokemon-card">
+      <v-card
+        class="mx-auto"
+        max-width="280"
+      >
+        <v-img
+          :src="pokemon.picture"
+          height="280px"
+          class="picture-pokemon-card-background"
+          cover
+        ></v-img>
 
-      <p class="pokemon-id">N°{{ pokemon.id }}</p>
+        <p class="pokemon-id">N°{{ pokemon.id }}</p>
 
-      <v-card-title>
-        {{ capitalize(pokemon.name) }}
-      </v-card-title>
+        <v-card-title>
+          {{ capitalize(pokemon.name) }}
+        </v-card-title>
 
-      <div class="pokemon-types">
-        <v-card-subtitle v-for="element in pokemon.types"
-          :key="`pokemon-${element}`" :class="element" class="element">
-          {{ capitalize(element) }}
-        </v-card-subtitle>
-      </div>
-    </v-card>
-  </div>
+        <div class="pokemon-types">
+          <v-card-subtitle v-for="element in pokemon.types"
+            :key="`pokemon-${element}`" :class="element" class="element">
+            {{ capitalize(element) }}
+          </v-card-subtitle>
+        </div>
+      </v-card>
+    </div>
+  </router-link>
 </template>
 
 <style scoped>
+.link-no-deco {
+  text-decoration: none;
+}
+
 .pokemon-card {
   padding: 8px
 }

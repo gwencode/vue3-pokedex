@@ -1,6 +1,12 @@
+<script setup>
+import { useRoute } from "vue-router";
+const route = useRoute();
+const id = parseInt(route.params.id, 10);
+</script>
+
 <template>
   <div class="about">
-    <h1>This is a Pokemon details page</h1>
+    <h1>This is a Pokemon details page {{ id }} </h1>
   </div>
 </template>
 
