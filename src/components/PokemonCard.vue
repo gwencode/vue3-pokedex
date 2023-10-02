@@ -24,6 +24,8 @@ defineProps({
         cover
       ></v-img>
 
+      <p class="pokemon-id">N°{{ pokemon.id }}</p>
+
       <v-card-title>
         {{ capitalize(pokemon.name) }}
       </v-card-title>
@@ -45,6 +47,12 @@ defineProps({
 
 .picture-pokemon-card-background {
   background-color: #F2F2F2;
+}
+
+.pokemon-id {
+  color: #919191;
+  font-size: 80%;
+  padding: 2px 1rem 0;
 }
 
 .pokemon-types {

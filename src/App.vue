@@ -26,6 +26,7 @@ import { RouterLink, RouterView } from 'vue-router'
   max-width: 1000px;
   margin: 0 auto;
   padding: 0 1rem;
+  background-color: white;
 }
 
 /* header {

@@ -1,10 +1,11 @@
 body {
-  background: repeating-linear-gradient(
+  /* background: repeating-linear-gradient(
     -45deg,
     #c9c8c8,
     #c9c8c8 50px,
     #ffffff 50px,
     #ffffff 100px
-  );
+  ); */
+  background-color: #F2F2F2;
   min-height: 100vh;
 }
