@@ -34,9 +34,16 @@ export const usePokemonStore = defineStore('PokemonStore', {
           //   }
           // })
         }
+        if (pokemon.id < 10) {
+          pokemon.picture = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/00" + pokemon.id + ".png"
+        } else if (pokemon.id < 100) {
+          pokemon.picture = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/0" + pokemon.id + ".png"
+        } else {
+          pokemon.picture = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/" + pokemon.id + ".png"
+        }
+
         this.pokemonList.push(pokemon);
       }
-      console.log(this.pokemonList)
     },
   },
 })
