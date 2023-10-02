@@ -4,7 +4,8 @@ export const usePokemonStore = defineStore('PokemonStore', {
   // Data
   state: () => ({
     pokemonList: [],
-    pokemonIndex: 1
+    pokemonIndex: 1,
+    pokemonDetails: {}
   }),
 
   // Computed
@@ -26,7 +27,6 @@ export const usePokemonStore = defineStore('PokemonStore', {
           name: response.forms[0].name,
           // height: response.height,
           // weight: response.weight,
-          picture: response.sprites.front_default,
           types: response.types.map(type => type.type.name),
           // stats: response.stats.map(stat => {
           //   return {
@@ -48,20 +48,30 @@ export const usePokemonStore = defineStore('PokemonStore', {
       this.pokemonIndex += number;
       console.log(this.pokemonIndex)
     },
-    async fetchDetails(pokemon) {
-      const response = await fetch("https://pokeapi.co/api/v2/pokemon/" + pokemon.id)
+    async fetchDetails(id) {
+      const response = await fetch("https://pokeapi.co/api/v2/pokemon/" + id)
       .then(response => response.json())
       console.log(response);
-        // pokemon.height: response.height,
-        // pokemon.weight: response.weight,
-        // const stats = response.stats.map(stat => {
-        //   return {
-        //     name: stat.stat.name,
-        //     value: stat.base_stat
-        //   }
-        // })
-        // pokemon.stats = stats
-        console.log(pokemon)
+      this.pokemonDetails.id = response.id;
+      this.pokemonDetails.name = response.forms[0].name;
+      this.pokemonDetails.height = response.height;
+      this.pokemonDetails.weight = response.weight;
+      this.pokemonDetails.type = response.types.map(type => type.type.name);
+      const stats = response.stats.map(stat => {
+        return {
+          name: stat.stat.name,
+          value: stat.base_stat
+        }
+      });
+      this.pokemonDetails.stats = stats;
+      if (this.pokemonDetails.id < 10) {
+        this.pokemonDetails.picture = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/00" + this.pokemonDetails.id + ".png"
+      } else if (this.pokemonDetails.id < 100) {
+        this.pokemonDetails.picture = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/0" + this.pokemonDetails.id + ".png"
+      } else {
+        this.pokemonDetails.picture = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/" + this.pokemonDetails.id + ".png"
+      }
+      console.log(this.pokemonDetails)
     }
   }
 })

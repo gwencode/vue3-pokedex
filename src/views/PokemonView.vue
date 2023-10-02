@@ -1,7 +1,18 @@
 <script setup>
+import { capitalize } from '@/composables/useCapitalizeFonction'
+import { usePokemonStore } from '@/stores/PokemonStore'
+// import { findPokemon } from '@/composables/useFindPokemon'
 import { useRoute } from "vue-router";
+
+const pokemonStore = usePokemonStore()
+
 const route = useRoute();
 const id = parseInt(route.params.id, 10);
+
+pokemonStore.fetchDetails(id)
+
+// const pokemon = findPokemon(id)
+
 </script>
 
 <template>

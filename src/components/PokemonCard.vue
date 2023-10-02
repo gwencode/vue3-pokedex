@@ -1,6 +1,6 @@
 <script setup>
 import { defineProps} from "vue";
-import { capitalize } from '@/composables/usePokemonFonction'
+import { capitalize } from '@/composables/useCapitalizeFonction'
 
 defineProps({
   pokemon : {
