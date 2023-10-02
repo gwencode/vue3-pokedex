@@ -13,7 +13,7 @@ if (pokemonStore.pokemonList.length === 0) {
 <template>
   <HomeBanner />
   <main>
-    <v-container class="">
+    <v-container style="padding: 0px !important">
       <v-row no-gutters>
         <v-col
           v-for="pokemon in pokemonStore.pokemonList"
