@@ -1,12 +1,13 @@
-<script>
-export default {
-  props : {
-    pokemon : {
+<script setup>
+import { defineProps} from "vue";
+import { capitalize } from '@/composables/usePokemonFonction'
+
+defineProps({
+  pokemon : {
       type : Object,
       required : true
     }
-  }
-}
+})
 
 </script>
 
@@ -22,7 +23,7 @@ export default {
     ></v-img>
 
     <v-card-title>
-      {{ pokemon.name.toUpCase() }}
+      {{ capitalize(pokemon.name) }}
     </v-card-title>
 
     <v-card-subtitle>
