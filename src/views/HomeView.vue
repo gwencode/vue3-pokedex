@@ -19,7 +19,7 @@ if (pokemonStore.pokemonList.length === 0) {
           v-for="pokemon in pokemonStore.pokemonList"
           :key="`pokemon-${pokemon.id}`"
           cols="12"
-          sm="4"
+          sm="6" md="4"
         >
           <PokemonCard :pokemon="pokemon" />
         </v-col>

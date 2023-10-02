@@ -15,11 +15,12 @@ defineProps({
   <div class="pokemon-card">
     <v-card
       class="mx-auto"
-      max-width="344"
+      max-width="280"
     >
       <v-img
         :src="pokemon.picture"
-        height="200px"
+        height="280px"
+        class="picture-pokemon-card-background"
         cover
       ></v-img>
 
@@ -40,6 +41,10 @@ defineProps({
 <style scoped>
 .pokemon-card {
   padding: 8px
+}
+
+.picture-pokemon-card-background {
+  background-color: #F2F2F2;
 }
 
 .pokemon-types {
