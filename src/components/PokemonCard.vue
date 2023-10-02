@@ -12,27 +12,31 @@ defineProps({
 </script>
 
 <template>
-  <v-card
-    class="mx-auto"
-    max-width="344"
-  >
-    <v-img
-      :src="pokemon.picture"
-      height="200px"
-      cover
-    ></v-img>
+  <div class="pokemon-card">
+    <v-card
+      class="mx-auto"
+      max-width="344"
+    >
+      <v-img
+        :src="pokemon.picture"
+        height="200px"
+        cover
+      ></v-img>
 
-    <v-card-title>
-      {{ capitalize(pokemon.name) }}
-    </v-card-title>
+      <v-card-title>
+        {{ capitalize(pokemon.name) }}
+      </v-card-title>
 
-    <v-card-subtitle>
-      {{ pokemon.types }}
-    </v-card-subtitle>
+      <v-card-subtitle>
+        {{ pokemon.types }}
+      </v-card-subtitle>
 
-  </v-card>
+    </v-card>
+  </div>
 </template>
 
-<style>
-
+<style scoped>
+.pokemon-card {
+  padding: 8px
+}
 </style>

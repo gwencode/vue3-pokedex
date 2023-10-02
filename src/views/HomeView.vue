@@ -13,16 +13,24 @@ if (pokemonStore.pokemonList.length === 0) {
 <template>
   <HomeBanner />
   <main>
-    <PokemonCard
-    v-for="pokemon in pokemonStore.pokemonList"
-    :key="`pokemon-${pokemon.id}`"
-    :pokemon="pokemon"
-  />
+    <v-container class="">
+      <v-row no-gutters>
+        <v-col
+          v-for="pokemon in pokemonStore.pokemonList"
+          :key="`pokemon-${pokemon.id}`"
+          cols="12"
+          sm="4"
+        >
+          <PokemonCard :pokemon="pokemon" />
+        </v-col>
+      </v-row>
+    </v-container>
+
   </main>
 </template>
 
 <style scoped>
   main {
-    padding: 16px;
+    padding: 16px 0;
   }
 </style>
