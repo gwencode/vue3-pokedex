@@ -6,7 +6,7 @@ import { usePokemonStore } from '@/stores/PokemonStore'
 
 const pokemonStore = usePokemonStore()
 if (pokemonStore.pokemonList.length === 0) {
-  pokemonStore.fetchPokemons(1, 12);
+  pokemonStore.fetchPokemons(12);
 }
 </script>
 
@@ -26,7 +26,7 @@ if (pokemonStore.pokemonList.length === 0) {
       </v-row>
     </v-container>
     <div id="button-load">
-      <v-btn elevated size="x-large">SHOW MORE POKEMONS</v-btn>
+      <v-btn elevated size="x-large" @click="pokemonStore.fetchPokemons(18)">SHOW MORE POKEMONS</v-btn>
     </div>
   </main>
 </template>

@@ -127,5 +127,33 @@ defineProps({
   color: #311b92;
 }
 
+.pokemon-types .normal {
+  background-color: #F5F5F5;
+  color: #616161;
+}
 
+.pokemon-types .fighting {
+  background-color: #E6E0D4;
+  color: #6D4C41;
+}
+
+.pokemon-types .psychic {
+  background-color: #724c7d;
+  color: white;
+}
+
+.pokemon-types .steel {
+  background-color: #404040;
+  color: white;
+}
+
+.pokemon-types .ice {
+  background-color: #01b4a8;
+  color: white;
+}
+
+.pokemon-types .ghost {
+  background-color: lemonchiffon;
+  color: rgb(45, 45, 45);
+}
 </style>

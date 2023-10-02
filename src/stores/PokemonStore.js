@@ -3,7 +3,8 @@ import { defineStore } from 'pinia'
 export const usePokemonStore = defineStore('PokemonStore', {
   // Data
   state: () => ({
-    pokemonList: []
+    pokemonList: [],
+    pokemonIndex: 1
   }),
 
   // Computed
@@ -15,8 +16,8 @@ export const usePokemonStore = defineStore('PokemonStore', {
 
   // Methods
   actions: {
-    async fetchPokemons(a, b) {
-      for (let i = a; i <= b; i++) {
+    async fetchPokemons(number) {
+      for (let i = this.pokemonIndex; i <= this.pokemonIndex + number - 1 ; i++) {
         const response = await fetch("https://pokeapi.co/api/v2/pokemon/" + i)
         .then(response => response.json())
         // console.log(response);
@@ -44,6 +45,23 @@ export const usePokemonStore = defineStore('PokemonStore', {
 
         this.pokemonList.push(pokemon);
       }
+      this.pokemonIndex += number;
+      console.log(this.pokemonIndex)
     },
-  },
+    async fetchDetails(pokemon) {
+      const response = await fetch("https://pokeapi.co/api/v2/pokemon/" + pokemon.id)
+      .then(response => response.json())
+      console.log(response);
+        // pokemon.height: response.height,
+        // pokemon.weight: response.weight,
+        // const stats = response.stats.map(stat => {
+        //   return {
+        //     name: stat.stat.name,
+        //     value: stat.base_stat
+        //   }
+        // })
+        // pokemon.stats = stats
+        console.log(pokemon)
+    }
+  }
 })
