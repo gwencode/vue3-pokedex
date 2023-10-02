@@ -25,12 +25,24 @@ if (pokemonStore.pokemonList.length === 0) {
         </v-col>
       </v-row>
     </v-container>
-
+    <div id="button-load">
+      <v-btn elevated size="x-large">SHOW MORE POKEMONS</v-btn>
+    </div>
   </main>
 </template>
 
 <style scoped>
   main {
     padding: 16px 0;
+  }
+
+  #button-load {
+    text-align: center;
+    margin: 8px 0
+  }
+
+  #button-load button {
+    background-color: #30A7D7;
+    color: white
   }
 </style>
