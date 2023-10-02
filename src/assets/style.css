@@ -6,4 +6,5 @@ body {
     #ffffff 50px,
     #ffffff 100px
   );
+  min-height: 100vh;
 }
