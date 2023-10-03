@@ -24,6 +24,16 @@ import { RouterLink, RouterView } from 'vue-router'
   text-decoration: none;
 }
 
+.big-blue-button {
+    text-align: center;
+    padding: 16px 0
+  }
+
+  .big-blue-button button {
+    background-color: #30A7D7;
+    color: white
+  }
+
 /* header {
   line-height: 1.5;
   max-height: 100vh;

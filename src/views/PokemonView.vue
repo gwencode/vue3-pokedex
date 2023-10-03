@@ -39,6 +39,11 @@ const updateId = (newId) => {
   <section>
     <PokemonInfo :pokemon="pokemonStore.pokemonDetails" />
   </section>
+  <div class="big-blue-button">
+    <router-link :to="`/`" class="link-no-deco">
+      <v-btn elevated size="x-large">ALL POKEMONS</v-btn>
+    </router-link>
+  </div>
 </template>
 
 <style scoped>
