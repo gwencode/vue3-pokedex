@@ -10,18 +10,43 @@ const route = useRoute();
 const id = parseInt(route.params.id, 10);
 
 pokemonStore.fetchDetails(id)
+pokemonStore.nextPokemonDetails(id)
 
 // const pokemon = findPokemon(id)
 
 </script>
 
 <template>
+  <!-- <TabsComponent :pokemon="pokemonStore.pokemonDetails" /> -->
+  {{ pokemonStore.nextPokemon }}
+  <section class="top-section">
+    <h1>
+      {{ capitalize(pokemonStore.pokemonDetails.name) }}
+      <span id="pokemon-id">N°{{ pokemonStore.pokemonDetails.id }}</span>
+    </h1>
+  </section>
   <div class="about">
-    <h1>This is a Pokemon details page {{ id }} </h1>
+    <pre>{{ pokemonStore.pokemonDetails }}</pre>
   </div>
 </template>
 
-<style>
+<style scoped>
+
+.top-section {
+  text-align: center;
+  padding: 16px 0;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+#pokemon-id {
+  color: #919191;
+  font-weight: lighter;
+}
+
 /* @media (min-width: 1024px) {
   .about {
     min-height: 100vh;
@@ -29,4 +54,6 @@ pokemonStore.fetchDetails(id)
     align-items: center;
   }
 } */
+
+
 </style>

@@ -1,11 +1,14 @@
 import { defineStore } from 'pinia'
+import { parse } from 'vue/compiler-sfc'
 
 export const usePokemonStore = defineStore('PokemonStore', {
   // Data
   state: () => ({
     pokemonList: [],
     pokemonIndex: 1,
-    pokemonDetails: {}
+    pokemonDetails: {},
+    nextPokemon: {},
+    previousPokemon: {},
   }),
 
   // Computed
@@ -21,19 +24,10 @@ export const usePokemonStore = defineStore('PokemonStore', {
       for (let i = this.pokemonIndex; i <= this.pokemonIndex + number - 1 ; i++) {
         const response = await fetch("https://pokeapi.co/api/v2/pokemon/" + i)
         .then(response => response.json())
-        // console.log(response);
         const pokemon = {
           id: response.id,
           name: response.forms[0].name,
-          // height: response.height,
-          // weight: response.weight,
           types: response.types.map(type => type.type.name),
-          // stats: response.stats.map(stat => {
-          //   return {
-          //     name: stat.stat.name,
-          //     value: stat.base_stat
-          //   }
-          // })
         }
         if (pokemon.id < 10) {
           pokemon.picture = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/00" + pokemon.id + ".png"
@@ -51,7 +45,7 @@ export const usePokemonStore = defineStore('PokemonStore', {
     async fetchDetails(id) {
       const response = await fetch("https://pokeapi.co/api/v2/pokemon/" + id)
       .then(response => response.json())
-      console.log(response);
+      // console.log(response);
       this.pokemonDetails.id = response.id;
       this.pokemonDetails.name = response.forms[0].name;
       this.pokemonDetails.height = response.height;
@@ -71,7 +65,18 @@ export const usePokemonStore = defineStore('PokemonStore', {
       } else {
         this.pokemonDetails.picture = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/" + this.pokemonDetails.id + ".png"
       }
-      console.log(this.pokemonDetails)
-    }
+      // console.log(this.pokemonDetails)
+    },
+    async nextPokemonDetails(id) {
+      const nextId = (id === 1010) ? 1 : parseInt(id, 10) + 1;
+      console.log(nextId);
+      const response = await fetch("https://pokeapi.co/api/v2/pokemon/" + nextId)
+      .then(response => response.json())
+      console.log(response);
+
+      this.nextPokemon.id = response.id;
+      this.nextPokemon.name = response.forms[0].name;
+      // console.log(this.nextPokemon);
+    },
   }
 })

@@ -68,7 +68,7 @@ defineProps({
 }
 
 .pokemon-types .element {
-  line-height: 1.5rem !important;
-  font-size: 1rem !important
+  line-height: 1.5rem;
+  font-size: 1rem
 }
 </style>
