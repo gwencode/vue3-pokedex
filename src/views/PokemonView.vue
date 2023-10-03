@@ -29,7 +29,7 @@ pokemonStore.nextPokemonDetails(id)
     </h1>
   </section>
   <div class="about">
-    <pre>{{ pokemonStore.pokemonDetails }}</pre>
+    <!-- <pre>{{ pokemonStore.pokemonDetails }}</pre> -->
   </div>
 </template>
 

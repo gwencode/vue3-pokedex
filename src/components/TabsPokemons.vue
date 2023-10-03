@@ -18,7 +18,7 @@ defineProps({
   <div class="pokemon-tabs">
     <button class="button-tab previous">
       <h2>
-        <v-icon start icon="mdi-arrow-left"></v-icon>
+        <i class="fa-solid fa-circle-arrow-left"></i>
         <span class="pokemon-id">N°{{ previousPokemon.id }}</span>
         {{ capitalize(previousPokemon.name) }}
       </h2>
@@ -27,7 +27,7 @@ defineProps({
       <h2>
         {{ capitalize(nextPokemon.name) }}
         <span class="pokemon-id">N°{{ nextPokemon.id }}</span>
-        &raquo;
+        <i class="fa-solid fa-circle-arrow-right"></i>
       </h2>
     </button>
   </div>
@@ -40,8 +40,13 @@ defineProps({
   justify-content: space-between;
 }
 
+i {
+  color: white;
+}
+
 .pokemon-id {
   color: white;
+  padding: 0 8px;
 }
 
 .button-tab {
@@ -53,8 +58,7 @@ defineProps({
 }
 
 .button-tab:hover {
-  background-color: #ddd;
-  color: black;
+  background-color: #30A7D7;
 }
 
 .previous {
