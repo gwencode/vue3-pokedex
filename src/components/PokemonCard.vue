@@ -43,9 +43,6 @@ defineProps({
 </template>
 
 <style scoped>
-.link-no-deco {
-  text-decoration: none;
-}
 
 .pokemon-card {
   padding: 8px

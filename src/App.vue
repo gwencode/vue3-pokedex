@@ -11,13 +11,17 @@ import { RouterLink, RouterView } from 'vue-router'
   </div>
 </template>
 
-<style scoped>
+<style>
 
 .container {
   max-width: 1000px;
   margin: 0 auto;
   padding: 0 1rem;
   background-color: white;
+}
+
+.link-no-deco {
+  text-decoration: none;
 }
 
 /* header {

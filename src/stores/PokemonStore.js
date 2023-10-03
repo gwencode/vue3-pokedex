@@ -1,5 +1,4 @@
 import { defineStore } from 'pinia'
-import { parse } from 'vue/compiler-sfc'
 
 export const usePokemonStore = defineStore('PokemonStore', {
   // Data
