@@ -1,7 +1,7 @@
 <script setup>
-import { capitalize } from '@/composables/useCapitalizeFonction'
 import { usePokemonStore } from '@/stores/PokemonStore'
 import TabsPokemons from '@/components/TabsPokemons.vue'
+import PokemonInfo from '@/components/PokemonInfo.vue'
 // import { findPokemon } from '@/composables/useFindPokemon'
 import { useRoute } from "vue-router";
 
@@ -22,41 +22,11 @@ pokemonStore.nextPokemonDetails(id)
   <TabsPokemons :previousPokemon="pokemonStore.previousPokemon"
   :nextPokemon="pokemonStore.nextPokemon"
   />
-  <section class="top-section">
-    <h1>
-      {{ capitalize(pokemonStore.pokemonDetails.name) }}
-      <span id="pokemon-id">N°{{ pokemonStore.pokemonDetails.id }}</span>
-    </h1>
+  <section>
+    <PokemonInfo :pokemon="pokemonStore.pokemonDetails" />
   </section>
-  <div class="about">
-    <!-- <pre>{{ pokemonStore.pokemonDetails }}</pre> -->
-  </div>
 </template>
 
 <style scoped>
-
-.top-section {
-  text-align: center;
-  padding: 16px 0;
-}
-
-h1 {
-  font-size: 32px;
-  font-weight: bold;
-}
-
-#pokemon-id {
-  color: #919191;
-  font-weight: lighter;
-}
-
-/* @media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-} */
-
 
 </style>
