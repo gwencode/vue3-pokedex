@@ -10,6 +10,7 @@ const route = useRoute();
 const id = parseInt(route.params.id, 10);
 
 pokemonStore.fetchDetails(id)
+pokemonStore.previousPokemonDetails(id)
 pokemonStore.nextPokemonDetails(id)
 
 // const pokemon = findPokemon(id)
@@ -18,6 +19,7 @@ pokemonStore.nextPokemonDetails(id)
 
 <template>
   <!-- <TabsComponent :pokemon="pokemonStore.pokemonDetails" /> -->
+  {{ pokemonStore.previousPokemon }}
   {{ pokemonStore.nextPokemon }}
   <section class="top-section">
     <h1>

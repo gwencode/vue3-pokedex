@@ -69,14 +69,17 @@ export const usePokemonStore = defineStore('PokemonStore', {
     },
     async nextPokemonDetails(id) {
       const nextId = (id === 1010) ? 1 : parseInt(id, 10) + 1;
-      console.log(nextId);
       const response = await fetch("https://pokeapi.co/api/v2/pokemon/" + nextId)
       .then(response => response.json())
-      console.log(response);
-
       this.nextPokemon.id = response.id;
       this.nextPokemon.name = response.forms[0].name;
-      // console.log(this.nextPokemon);
     },
+    async previousPokemonDetails(id) {
+      const previousId = (id === 1) ? 1010 : parseInt(id, 10) - 1;
+      const response = await fetch("https://pokeapi.co/api/v2/pokemon/" + previousId)
+      .then(response => response.json())
+      this.previousPokemon.id = response.id;
+      this.previousPokemon.name = response.forms[0].name;
+    }
   }
 })
