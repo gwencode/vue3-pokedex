@@ -4,7 +4,10 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <div class="container">
-    <RouterView />
+    <Suspense>
+      <router-view></router-view>
+      <template v-slot:fallback>Loading Pokemon data...</template>
+    </Suspense>
   </div>
 </template>
 

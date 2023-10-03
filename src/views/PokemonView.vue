@@ -1,6 +1,7 @@
 <script setup>
 import { capitalize } from '@/composables/useCapitalizeFonction'
 import { usePokemonStore } from '@/stores/PokemonStore'
+import TabsPokemons from '@/components/TabsPokemons.vue'
 // import { findPokemon } from '@/composables/useFindPokemon'
 import { useRoute } from "vue-router";
 
@@ -18,9 +19,9 @@ pokemonStore.nextPokemonDetails(id)
 </script>
 
 <template>
-  <!-- <TabsComponent :pokemon="pokemonStore.pokemonDetails" /> -->
-  {{ pokemonStore.previousPokemon }}
-  {{ pokemonStore.nextPokemon }}
+  <TabsPokemons :previousPokemon="pokemonStore.previousPokemon"
+  :nextPokemon="pokemonStore.nextPokemon"
+  />
   <section class="top-section">
     <h1>
       {{ capitalize(pokemonStore.pokemonDetails.name) }}
