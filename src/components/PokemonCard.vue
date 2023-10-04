@@ -57,15 +57,4 @@ defineProps({
   font-size: 80%;
   padding: 2px 1rem 0;
 }
-
-.pokemon-types {
-  display: flex;
-  padding: 0.5rem 1rem;
-  gap: 0.5rem;
-}
-
-.pokemon-types .element {
-  line-height: 1.5rem;
-  font-size: 1rem
-}
 </style>
