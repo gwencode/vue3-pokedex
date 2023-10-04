@@ -19,8 +19,9 @@ export const usePokemonStore = defineStore('PokemonStore', {
 
   // Methods
   actions: {
-    async fetchPokemons(number) {
-      for (let i = this.pokemonIndex; i <= this.pokemonIndex + number - 1 ; i++) {
+    async fetchPokemons(pokemonList, start_index, number) {
+      this.pokemonList = pokemonList;
+      for (let i = start_index; i <= start_index + number - 1 ; i++) {
         const response = await fetch("https://pokeapi.co/api/v2/pokemon/" + i)
         .then(response => response.json())
         const pokemon = {
@@ -38,7 +39,7 @@ export const usePokemonStore = defineStore('PokemonStore', {
 
         this.pokemonList.push(pokemon);
       }
-      this.pokemonIndex += number;
+      this.pokemonIndex = start_index + number;
       console.log(this.pokemonIndex)
     },
     async fetchDetails(id) {

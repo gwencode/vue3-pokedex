@@ -6,13 +6,22 @@ import { usePokemonStore } from '@/stores/PokemonStore'
 
 const pokemonStore = usePokemonStore()
 if (pokemonStore.pokemonList.length === 0) {
-  pokemonStore.fetchPokemons(12);
+  pokemonStore.fetchPokemons([], 1, 12);
 }
 </script>
 
 <template>
   <HomeBanner />
   <main>
+    <button @click="pokemonStore.fetchPokemons([], 1, 12)">Generation 1 (Kanto)</button>
+    <button @click="pokemonStore.fetchPokemons([], 152, 12)">Generation 2 (Johto)</button>
+    <button @click="pokemonStore.fetchPokemons([], 252, 12)">Generation 3 (Hoenn)</button>
+    <button @click="pokemonStore.fetchPokemons([], 387, 12)">Generation 4 (Sinnoh)</button>
+    <button @click="pokemonStore.fetchPokemons([], 494, 12)">Generation 5 (Unys)</button>
+    <button @click="pokemonStore.fetchPokemons([], 650, 12)">Generation 6 (Kalos)</button>
+    <button @click="pokemonStore.fetchPokemons([], 722, 12)">Generation 7 (Alola)</button>
+    <button @click="pokemonStore.fetchPokemons([], 810, 12)">Generation 8 (Galar & Hisui)</button>
+    <button @click="pokemonStore.fetchPokemons([], 906, 12)">Generation 9 (Paldea)</button>
     <v-container style="padding: 0px">
       <v-row no-gutters>
         <v-col
@@ -26,7 +35,7 @@ if (pokemonStore.pokemonList.length === 0) {
       </v-row>
     </v-container>
     <div class="big-blue-button">
-      <v-btn elevated size="x-large" @click="pokemonStore.fetchPokemons(18)">SHOW MORE POKEMONS</v-btn>
+      <v-btn elevated size="x-large" @click="pokemonStore.fetchPokemons(pokemonStore.pokemonList, pokemonStore.pokemonIndex, 18)">SHOW MORE POKEMONS</v-btn>
     </div>
   </main>
 </template>
