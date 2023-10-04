@@ -26,6 +26,9 @@ export default createVuetify({
   },
 })
 
+// Bootstrap
+import 'bootstrap/dist/css/bootstrap.css';
+
 const app = createApp(App)
 const pinia = createPinia()
 

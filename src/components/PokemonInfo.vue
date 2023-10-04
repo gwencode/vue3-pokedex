@@ -17,9 +17,11 @@
       <span id="pokemon-id">N°{{ pokemon.id }}</span>
     </h1>
   </section>
-  <section id="pokemon-details">
-    <img :src="pokemon.picture" alt="">
-    <div id="pokemon-info">
+  <section id="pokemon-details" class="row">
+    <div class="col-12 col-md-6">
+      <img :src="pokemon.picture" alt="">
+    </div>
+    <div id="pokemon-info" class="col-12 col-md-6">
       <h2>Sizes</h2>
       <div style="display: flex; justify-content: space-around">
         <p><i class="fa-solid fa-ruler"></i> Height: <strong>{{ pokemon.height / 10 }} m</strong></p>
@@ -38,7 +40,8 @@
         </li>
       </ul>
     </div>
-  </section>
+    </section>
+
 
 </template>
 
@@ -72,7 +75,6 @@ img {
 }
 
 #pokemon-info {
-  width: 100%;
   text-align: center;
 }
 
