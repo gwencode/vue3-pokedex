@@ -11,27 +11,35 @@
   </script>
 
 <template>
-  <div id="pokemon-name">
+  <section id="pokemon-name">
     <h1>
       {{ capitalize(pokemon.name) }}
       <span id="pokemon-id">N°{{ pokemon.id }}</span>
     </h1>
-  </div>
-  <img :src="pokemon.picture" alt="">
-  <p>Height: {{ pokemon.height }}</p>
-  <p>Weight: {{ pokemon.weight }}</p>
-  <h3>Types</h3>
-  <ul>
-    <li v-for="element in pokemon.type" :key="element">
-      {{ element }}
-    </li>
-  </ul>
-  <h3>Stats</h3>
-  <ul>
-    <li v-for="stat in pokemon.stats" :key="stat.name">
-      {{ stat.name }}: {{ stat.value }}
-    </li>
-  </ul>
+  </section>
+  <section id="pokemon-details">
+    <img :src="pokemon.picture" alt="">
+    <div id="pokemon-info">
+      <h2>Sizes</h2>
+      <div style="display: flex; justify-content: space-around">
+        <p><i class="fa-solid fa-ruler"></i> Height: <strong>{{ pokemon.height / 10 }} m</strong></p>
+        <p><i class="fa-solid fa-weight-hanging"></i> Weight: <strong>{{ pokemon.weight / 10 }} kg</strong></p>
+      </div>
+      <h2>Types</h2>
+      <ul>
+        <li v-for="element in pokemon.type" :key="element">
+          {{ element }}
+        </li>
+      </ul>
+      <h2>Stats</h2>
+      <ul>
+        <li v-for="stat in pokemon.stats" :key="stat.name">
+          {{ stat.name }}: {{ stat.value }}
+        </li>
+      </ul>
+    </div>
+  </section>
+
 </template>
 
 <style scoped>
@@ -45,9 +53,31 @@ h1 {
   font-weight: bold;
 }
 
+
+h2 {
+  color: #30A7D7;
+}
+
 #pokemon-id {
   color: #919191;
   font-weight: lighter;
+}
+
+#pokemon-details {
+  display: flex;
+}
+
+img {
+  width: 100%;
+}
+
+#pokemon-info {
+  width: 100%;
+  text-align: center;
+}
+
+i {
+  color: #30A7D7;
 }
 
 </style>
