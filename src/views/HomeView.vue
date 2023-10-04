@@ -13,15 +13,15 @@ if (pokemonStore.pokemonList.length === 0) {
 <template>
   <HomeBanner />
   <main>
-    <button @click="pokemonStore.fetchPokemons([], 1, 12)">Generation 1 (Kanto)</button>
-    <button @click="pokemonStore.fetchPokemons([], 152, 12)">Generation 2 (Johto)</button>
-    <button @click="pokemonStore.fetchPokemons([], 252, 12)">Generation 3 (Hoenn)</button>
-    <button @click="pokemonStore.fetchPokemons([], 387, 12)">Generation 4 (Sinnoh)</button>
-    <button @click="pokemonStore.fetchPokemons([], 494, 12)">Generation 5 (Unys)</button>
-    <button @click="pokemonStore.fetchPokemons([], 650, 12)">Generation 6 (Kalos)</button>
-    <button @click="pokemonStore.fetchPokemons([], 722, 12)">Generation 7 (Alola)</button>
-    <button @click="pokemonStore.fetchPokemons([], 810, 12)">Generation 8 (Galar & Hisui)</button>
-    <button @click="pokemonStore.fetchPokemons([], 906, 12)">Generation 9 (Paldea)</button>
+    <button class="btn btn-primary" @click="pokemonStore.fetchPokemons([], 1, 12)">Generation 1 (Kanto)</button>
+    <button class="btn btn-primary" @click="pokemonStore.fetchPokemons([], 152, 12)">Generation 2 (Johto)</button>
+    <button class="btn btn-primary" @click="pokemonStore.fetchPokemons([], 252, 12)">Generation 3 (Hoenn)</button>
+    <button class="btn btn-primary" @click="pokemonStore.fetchPokemons([], 387, 12)">Generation 4 (Sinnoh)</button>
+    <button class="btn btn-primary" @click="pokemonStore.fetchPokemons([], 494, 12)">Generation 5 (Unys)</button>
+    <button class="btn btn-primary" @click="pokemonStore.fetchPokemons([], 650, 12)">Generation 6 (Kalos)</button>
+    <button class="btn btn-primary" @click="pokemonStore.fetchPokemons([], 722, 12)">Generation 7 (Alola)</button>
+    <button class="btn btn-primary" @click="pokemonStore.fetchPokemons([], 810, 12)">Generation 8 (Galar & Hisui)</button>
+    <button class="btn btn-primary" @click="pokemonStore.fetchPokemons([], 906, 12)">Generation 9 (Paldea)</button>
     <v-container style="padding: 0px">
       <v-row no-gutters>
         <v-col
