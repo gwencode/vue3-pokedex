@@ -1,4 +1,5 @@
 <script setup>
+import { ref, watch } from 'vue'
 import HomeBanner from '@/components/HomeBanner.vue'
 import PokemonCard from '@/components/PokemonCard.vue'
 
@@ -8,20 +9,69 @@ const pokemonStore = usePokemonStore()
 if (pokemonStore.pokemonList.length === 0) {
   pokemonStore.fetchPokemons([], 1, 12);
 }
+
+const generation = ref(pokemonStore.Generation);
+
+watch(generation, (newGeneration) => {
+  console.log(newGeneration);
+  switch (newGeneration) {
+    case "Generation 1 (Kanto)":
+      pokemonStore.Generation = "Generation 1 (Kanto)";
+      pokemonStore.fetchPokemons([], 1, 12);
+      break;
+    case "Generation 2 (Johto)":
+      pokemonStore.Generation = "Generation 2 (Johto)";
+      pokemonStore.fetchPokemons([], 152, 12);
+      break;
+    case "Generation 3 (Hoenn)":
+      pokemonStore.Generation = "Generation 3 (Hoenn)";
+      pokemonStore.fetchPokemons([], 252, 12);
+      break;
+    case "Generation 4 (Sinnoh)":
+      pokemonStore.Generation = "Generation 4 (Sinnoh)";
+      pokemonStore.fetchPokemons([], 387, 12);
+      break;
+    case "Generation 5 (Unys)":
+      pokemonStore.Generation = "Generation 5 (Unys)";
+      pokemonStore.fetchPokemons([], 494, 12);
+      break;
+    case "Generation 6 (Kalos)":
+      pokemonStore.Generation = "Generation 6 (Kalos)";
+      pokemonStore.fetchPokemons([], 650, 12);
+      break;
+    case "Generation 7 (Alola)":
+      pokemonStore.Generation = "Generation 7 (Alola)";
+      pokemonStore.fetchPokemons([], 722, 12);
+      break;
+    case "Generation 8 (Galar & Hisui)":
+      pokemonStore.Generation = "Generation 8 (Galar & Hisui)";
+      pokemonStore.fetchPokemons([], 810, 12);
+      break;
+    case "Generation 9 (Paldea)":
+      pokemonStore.Generation = "Generation 9 (Paldea)";
+      pokemonStore.fetchPokemons([], 906, 12);
+      break;
+      default:
+        pokemonStore.Generation = "Generation 1 (Kanto)";
+        pokemonStore.fetchPokemons([], 1, 12);
+  }
+});
+
 </script>
 
 <template>
   <HomeBanner />
   <main>
-    <button class="btn btn-primary" @click="pokemonStore.fetchPokemons([], 1, 12)">Generation 1 (Kanto)</button>
-    <button class="btn btn-primary" @click="pokemonStore.fetchPokemons([], 152, 12)">Generation 2 (Johto)</button>
-    <button class="btn btn-primary" @click="pokemonStore.fetchPokemons([], 252, 12)">Generation 3 (Hoenn)</button>
-    <button class="btn btn-primary" @click="pokemonStore.fetchPokemons([], 387, 12)">Generation 4 (Sinnoh)</button>
-    <button class="btn btn-primary" @click="pokemonStore.fetchPokemons([], 494, 12)">Generation 5 (Unys)</button>
-    <button class="btn btn-primary" @click="pokemonStore.fetchPokemons([], 650, 12)">Generation 6 (Kalos)</button>
-    <button class="btn btn-primary" @click="pokemonStore.fetchPokemons([], 722, 12)">Generation 7 (Alola)</button>
-    <button class="btn btn-primary" @click="pokemonStore.fetchPokemons([], 810, 12)">Generation 8 (Galar & Hisui)</button>
-    <button class="btn btn-primary" @click="pokemonStore.fetchPokemons([], 906, 12)">Generation 9 (Paldea)</button>
+    <!-- <p>Message is: {{ generation }}</p>
+    <input v-model="generation" placeholder="edit me" /> -->
+    <v-combobox
+      label="Select a Generation"
+      :items="pokemonStore.Generations"
+      v-model="generation"
+    ></v-combobox>
+
+    <h1>{{ pokemonStore.Generation }}</h1>
+
     <v-container style="padding: 0px">
       <v-row no-gutters>
         <v-col

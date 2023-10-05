@@ -8,6 +8,12 @@ export const usePokemonStore = defineStore('PokemonStore', {
     pokemonDetails: {},
     nextPokemon: {},
     previousPokemon: {},
+    Generation: "Generation 1 (Kanto)",
+    Generations: [
+      "Generation 1 (Kanto)", "Generation 2 (Johto)", "Generation 3 (Hoenn)",
+      "Generation 4 (Sinnoh)", "Generation 5 (Unys)", "Generation 6 (Kalos)",
+      "Generation 7 (Alola)", "Generation 8 (Galar & Hisui)", "Generation 9 (Paldea)"
+    ]
   }),
 
   // Computed

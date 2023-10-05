@@ -93,3 +93,8 @@
   background-color: lemonchiffon;
   color: rgb(45, 45, 45);
 }
+
+.pokemon-types .dark {
+  background-color: #000000;
+  color: white;
+}
