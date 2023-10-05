@@ -36,12 +36,14 @@ const updateId = (newId) => {
     :nextPokemon="pokemonStore.nextPokemon"
     @update-id="updateId"
   />
-  <PokemonInfo :pokemon="pokemonStore.pokemonDetails" />
-  <div class="big-blue-button">
-    <router-link :to="`/`" class="link-no-deco">
-      <v-btn elevated size="x-large">ALL POKEMONS</v-btn>
-    </router-link>
-  </div>
+  <main>
+    <PokemonInfo :pokemon="pokemonStore.pokemonDetails" />
+    <div class="big-blue-button">
+      <router-link :to="`/`" class="link-no-deco">
+        <v-btn elevated size="x-large">ALL POKEMONS</v-btn>
+      </router-link>
+    </div>
+  </main>
 </template>
 
 <style scoped>

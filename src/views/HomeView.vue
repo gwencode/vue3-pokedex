@@ -76,9 +76,6 @@ watch(sort, (newSort) => {
 </template>
 
 <style scoped>
-main {
-  padding: 16px 0;
-}
 
 h1 {
   text-align: center;

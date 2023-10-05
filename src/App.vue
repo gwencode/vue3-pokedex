@@ -3,7 +3,7 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <div class="container">
+  <div class="my-container">
     <Suspense>
       <router-view></router-view>
       <template v-slot:fallback>Loading Pokemon data...</template>
@@ -13,11 +13,18 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <style>
 
-.container {
+#app {
+  background-color: #EEEEEE;
+}
+
+.my-container {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 0 1rem;
   background-color: white;
+}
+
+main {
+  padding: 16px;
 }
 
 .link-no-deco {
