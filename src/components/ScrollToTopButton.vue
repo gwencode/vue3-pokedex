@@ -1,9 +1,39 @@
 <script setup>
+import { ref, onMounted, onBeforeUnmount } from 'vue';
+
+const scrollTopButton = ref(null);
+
+const handleScroll = () => {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+  if (scrollTop > 400) {
+    scrollTopButton.value.classList.remove("d-none");
+  } else {
+    scrollTopButton.value.classList.add("d-none");
+  }
+};
+
+onMounted(() => {
+  scrollTopButton.value = document.getElementById("scroll-to-top-button");
+  window.addEventListener("scroll", handleScroll);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("scroll", handleScroll);
+});
+
+const scrollTop = () => {
+  event.preventDefault();
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+};
 
 </script>
 
 <template>
-  <a href="" id="scroll-to-top-button">
+  <a href="" id="scroll-to-top-button" class="d-none" @click="scrollTop">
     <i class="fa-solid fa-circle-arrow-up"></i>
   </a>
 </template>
