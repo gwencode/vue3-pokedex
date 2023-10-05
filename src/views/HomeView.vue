@@ -4,6 +4,7 @@ import HomeBanner from '@/components/HomeBanner.vue'
 import PokemonCard from '@/components/PokemonCard.vue'
 import SearchInputs from '@/components/SearchInputs.vue'
 import ComboboxInputs from '@/components/ComboboxInputs.vue'
+import ScrollToTopButton from '@/components/ScrollToTopButton.vue'
 
 import { usePokemonStore } from '@/stores/PokemonStore'
 
@@ -40,7 +41,12 @@ if (pokemonStore.pokemonList.length === 0) {
     <div class="big-blue-button">
       <v-btn elevated size="x-large" @click="pokemonStore.fetchPokemons(pokemonStore.pokemonList, pokemonStore.pokemonIndex, 18)">SHOW MORE POKEMONS</v-btn>
     </div>
+    <div>
+      <ScrollToTopButton />
+    </div>
   </main>
+
+
 </template>
 
 <style scoped>
@@ -50,4 +56,5 @@ h1 {
   color: #30A7D7;
   margin: 0;
 }
+
 </style>

@@ -18,9 +18,14 @@ import { RouterLink, RouterView } from 'vue-router'
 }
 
 .my-container {
-  max-width: 1000px;
   margin: 0 auto;
   background-color: white;
+}
+
+@media (min-width: 768px) {
+  .my-container {
+    max-width: 90vw;
+  }
 }
 
 main {
