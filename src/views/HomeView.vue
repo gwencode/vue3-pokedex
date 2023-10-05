@@ -3,6 +3,7 @@ import { ref, watch } from 'vue'
 import HomeBanner from '@/components/HomeBanner.vue'
 import PokemonCard from '@/components/PokemonCard.vue'
 import SearchInputs from '@/components/SearchInputs.vue'
+import ComboboxInputs from '@/components/ComboboxInputs.vue'
 
 import { usePokemonStore } from '@/stores/PokemonStore'
 
@@ -11,45 +12,14 @@ if (pokemonStore.pokemonList.length === 0) {
   pokemonStore.fetchPokemons([], 1, 12);
 }
 
-const generation = ref(pokemonStore.generation);
-
-watch(generation, (newGeneration) => {
-  console.log(newGeneration);
-  pokemonStore.filterGeneration(newGeneration);
-});
-
-const sort = ref(pokemonStore.sort);
-
-watch(sort, (newSort) => {
-  console.log(newSort);
-  pokemonStore.sortPokemons(newSort);
-});
-
 </script>
 
 <template>
   <HomeBanner />
   <main>
-    <section>
+    <section id="search-sort-pokemons">
       <SearchInputs />
-
-      <div class="d-flex justify-content-between">
-        <div style="width: 33%">
-          <v-combobox
-            label="Select a Generation"
-            :items="pokemonStore.generations"
-            v-model="generation"
-          ></v-combobox>
-        </div>
-        <div style="width: 33%">
-          <v-combobox
-          label="Sort Pokemons by"
-          :items="pokemonStore.sorts"
-          v-model="sort"
-          ></v-combobox>
-        </div>
-      </div>
-
+      <ComboboxInputs />
     </section>
 
     <h1>{{ pokemonStore.generation }}</h1>

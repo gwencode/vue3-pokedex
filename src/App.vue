@@ -25,6 +25,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
 main {
   padding: 16px;
+  min-height: 100vh;
 }
 
 .link-no-deco {
