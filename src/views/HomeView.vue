@@ -29,16 +29,23 @@ watch(sort, (newSort) => {
 <template>
   <HomeBanner />
   <main>
-    <section class="d-flex justify-content-between">
-      <div class="div" style="width: 25%">
+    <section class="d-flex justify-content-between align-items-start">
+      <div style="width: 25%">
       <v-combobox
         label="Select a Generation"
-        :items="pokemonStore.Generations"
+        :items="pokemonStore.generations"
         v-model="generation"
       ></v-combobox>
       </div>
 
-      <div class="div" style="width: 25%">
+      <div style="width: 25%" class="input-group-number">
+        <input type="number" class="form-control input-number" id="pokemonNumberInput"
+          min="1" max="1010"
+        placeholder="Search by number">
+        <button class="btn" id="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </div>
+
+      <div style="width: 25%">
         <v-combobox
         label="Sort Pokemons by"
         :items="pokemonStore.sorts"
@@ -76,5 +83,23 @@ main {
 h1 {
   text-align: center;
   color: #30A7D7;
+}
+
+.input-group-number {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* background-color: #EEEEEE; */
+}
+
+.input-number {
+	width: 75%;
+}
+
+#btn-search {
+  width: 20%;
+  height: 100%;
+  background-color: #EEEEEE;
+  border: none;
 }
 </style>
