@@ -40,14 +40,14 @@ watch(sort, (newSort) => {
 
       <div class="div" style="width: 25%">
         <v-combobox
-        label="Sort by"
+        label="Sort Pokemons by"
         :items="pokemonStore.sorts"
         v-model="sort"
       ></v-combobox>
     </div>
   </section>
 
-    <h1>{{ pokemonStore.Generation }}</h1>
+    <h1>{{ pokemonStore.generation }}</h1>
     <v-divider></v-divider>
 
     <v-container style="padding: 0px">

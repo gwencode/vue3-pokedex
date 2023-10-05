@@ -31,6 +31,7 @@ export const usePokemonStore = defineStore('PokemonStore', {
   actions: {
     async fetchPokemons(pokemonList, start_index, number) {
       this.pokemonList = pokemonList;
+      let newList = [];
       for (let i = start_index; i <= start_index + number - 1 ; i++) {
         const response = await fetch("https://pokeapi.co/api/v2/pokemon/" + i)
         .then(response => response.json())
@@ -47,7 +48,11 @@ export const usePokemonStore = defineStore('PokemonStore', {
           pokemon.picture = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/" + pokemon.id + ".png"
         }
 
-        this.pokemonList.push(pokemon);
+        newList.push(pokemon);
+      }
+      this.pokemonList = this.pokemonList.concat(newList);
+      if (this.sort != "Ascending number") {
+        this.sortPokemons(this.sort);
       }
       this.pokemonIndex = start_index + number;
       console.log(this.pokemonIndex)
