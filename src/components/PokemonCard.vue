@@ -16,11 +16,11 @@ defineProps({
     <div class="pokemon-card">
       <v-card
         class="mx-auto"
-        max-width="280"
+        max-width="200px"
       >
         <v-img
           :src="pokemon.picture"
-          height="280px"
+          height="200px"
           class="picture-pokemon-card-background"
           cover
         ></v-img>
@@ -56,5 +56,6 @@ defineProps({
   color: #919191;
   font-size: 80%;
   padding: 2px 1rem 0;
+  margin: 0;
 }
 </style>

@@ -80,6 +80,7 @@ watch(sort, (newSort) => {
 h1 {
   text-align: center;
   color: #30A7D7;
+  margin: 0;
 }
 
 .input-group-number {
