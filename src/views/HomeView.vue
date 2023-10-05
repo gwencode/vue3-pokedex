@@ -28,9 +28,11 @@ watch(generation, (newGeneration) => {
       label="Select a Generation"
       :items="pokemonStore.Generations"
       v-model="generation"
+      style="width: 25%"
     ></v-combobox>
 
     <h1>{{ pokemonStore.Generation }}</h1>
+    <v-divider></v-divider>
 
     <v-container style="padding: 0px">
       <v-row no-gutters>
@@ -51,7 +53,12 @@ watch(generation, (newGeneration) => {
 </template>
 
 <style scoped>
-  main {
-    padding: 16px 0;
-  }
+main {
+  padding: 16px 0;
+}
+
+h1 {
+  text-align: center;
+  color: #30A7D7;
+}
 </style>
