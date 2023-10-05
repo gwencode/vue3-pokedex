@@ -1,5 +1,6 @@
 <script setup>
 import { ref, watch } from 'vue'
+import { useRouter } from 'vue-router';
 import HomeBanner from '@/components/HomeBanner.vue'
 import PokemonCard from '@/components/PokemonCard.vue'
 
@@ -24,6 +25,20 @@ watch(sort, (newSort) => {
   pokemonStore.sortPokemons(newSort);
 });
 
+const router = useRouter();
+
+const searchById = () => {
+  const pokemonNumberInput = document.getElementById('pokemonNumberInput');
+  const pokemonNumber = pokemonNumberInput.value;
+  if (pokemonNumber < 1 || pokemonNumber > 1010) {
+    alert("Please enter a Pokemon number between 1 and 1010");
+    return;
+  }
+  router.push(`pokemon/${pokemonNumber}`);
+}
+
+
+
 </script>
 
 <template>
@@ -38,11 +53,16 @@ watch(sort, (newSort) => {
       ></v-combobox>
       </div>
 
-      <div style="width: 25%" class="input-group-number">
-        <input type="number" class="form-control input-number" id="pokemonNumberInput"
-          min="1" max="1010"
-        placeholder="Search by number">
-        <button class="btn" id="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+      <div style="width: 25%" >
+        <label for="pokemonNumberInput" id="label-input-number">Search by number</label>
+        <div class="input-group-number">
+          <input type="number" class="form-control input-number" id="pokemonNumberInput"
+            min="1" max="1010" @keyup.enter="searchById"
+          placeholder="Number between 1 & 1010">
+          <button class="btn" id="btn-search" @click="searchById">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
       </div>
 
       <div style="width: 25%">
@@ -90,8 +110,14 @@ h1 {
   /* background-color: #EEEEEE; */
 }
 
+#label-input-number {
+ padding: 0 0.375rem 2px;
+ color: darkgray;
+}
+
 .input-number {
 	width: 75%;
+  font-size: 0.75em;
 }
 
 #btn-search {
