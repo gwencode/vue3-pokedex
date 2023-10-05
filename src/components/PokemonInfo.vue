@@ -10,6 +10,28 @@ defineProps({
     required : true
   }
 })
+
+const pokemonGeneration = (pokemon) => {
+  if (pokemon.id <= 151) {
+    return "Generation 1 (Kanto)";
+  } else if (pokemon.id <= 251) {
+    return "Generation 2 (Johto)";
+  } else if (pokemon.id <= 386) {
+    return "Generation 3 (Hoenn)";
+  } else if (pokemon.id <= 493) {
+    return "Generation 4 (Sinnoh)";
+  } else if (pokemon.id <= 649) {
+    return "Generation 5 (Unova)";
+  } else if (pokemon.id <= 721) {
+    return "Generation 6 (Kalos)";
+  } else if (pokemon.id <= 809) {
+    return "Generation 7 (Alola)";
+  } else if (pokemon.id <= 905) {
+    return "Generation 8 (Galar & Hisui)";
+  } else {
+    return "Generation 9 (Paldea)";
+  }
+}
 </script>
 
 <template>
@@ -19,6 +41,7 @@ defineProps({
       {{ capitalize(pokemon.name) }}
       <span id="pokemon-id">N°{{ pokemon.id }}</span>
     </h1>
+    <h6>{{ pokemonGeneration(pokemon) }}</h6>
   </section>
 
   <section id="pokemon-details" class="row">
@@ -70,6 +93,11 @@ h1 {
 
 h2 {
   color: #30A7D7;
+}
+
+h6 {
+  color: #30A7D7;
+  font-weight: lighter;
 }
 
 p {
