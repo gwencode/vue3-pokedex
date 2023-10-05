@@ -10,11 +10,18 @@ if (pokemonStore.pokemonList.length === 0) {
   pokemonStore.fetchPokemons([], 1, 12);
 }
 
-const generation = ref(pokemonStore.Generation);
+const generation = ref(pokemonStore.generation);
 
 watch(generation, (newGeneration) => {
   console.log(newGeneration);
   pokemonStore.filterGeneration(newGeneration);
+});
+
+const sort = ref(pokemonStore.sort);
+
+watch(sort, (newSort) => {
+  console.log(newSort);
+  pokemonStore.sortPokemons(newSort);
 });
 
 </script>
@@ -22,14 +29,23 @@ watch(generation, (newGeneration) => {
 <template>
   <HomeBanner />
   <main>
-    <!-- <p>Message is: {{ generation }}</p>
-    <input v-model="generation" placeholder="edit me" /> -->
-    <v-combobox
-      label="Select a Generation"
-      :items="pokemonStore.Generations"
-      v-model="generation"
-      style="width: 25%"
-    ></v-combobox>
+    <section class="d-flex justify-content-between">
+      <div class="div" style="width: 25%">
+      <v-combobox
+        label="Select a Generation"
+        :items="pokemonStore.Generations"
+        v-model="generation"
+      ></v-combobox>
+      </div>
+
+      <div class="div" style="width: 25%">
+        <v-combobox
+        label="Sort by"
+        :items="pokemonStore.sorts"
+        v-model="sort"
+      ></v-combobox>
+    </div>
+  </section>
 
     <h1>{{ pokemonStore.Generation }}</h1>
     <v-divider></v-divider>

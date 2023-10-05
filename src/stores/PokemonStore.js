@@ -8,12 +8,16 @@ export const usePokemonStore = defineStore('PokemonStore', {
     pokemonDetails: {},
     nextPokemon: {},
     previousPokemon: {},
-    Generation: "Generation 1 (Kanto)",
-    Generations: [
+    generation: "Generation 1 (Kanto)",
+    generations: [
       "Generation 1 (Kanto)", "Generation 2 (Johto)", "Generation 3 (Hoenn)",
       "Generation 4 (Sinnoh)", "Generation 5 (Unys)", "Generation 6 (Kalos)",
       "Generation 7 (Alola)", "Generation 8 (Galar & Hisui)", "Generation 9 (Paldea)"
-    ]
+    ],
+    sort: "Ascending number",
+    sorts: [ "Ascending number",
+      "Descending number",
+      "A-Z", "Z-A"]
   }),
 
   // Computed
@@ -87,47 +91,80 @@ export const usePokemonStore = defineStore('PokemonStore', {
       this.previousPokemon.id = response.id;
       this.previousPokemon.name = response.forms[0].name;
     },
-    filterGeneration(generation) {
-      switch (generation) {
+    filterGeneration(newGeneration) {
+      switch (newGeneration) {
         case "Generation 1 (Kanto)":
-          this.Generation = "Generation 1 (Kanto)";
+          this.generation = "Generation 1 (Kanto)";
           this.fetchPokemons([], 1, 12);
           break;
         case "Generation 2 (Johto)":
-          this.Generation = "Generation 2 (Johto)";
+          this.generation = "Generation 2 (Johto)";
           this.fetchPokemons([], 152, 12);
           break;
         case "Generation 3 (Hoenn)":
-          this.Generation = "Generation 3 (Hoenn)";
+          this.generation = "Generation 3 (Hoenn)";
           this.fetchPokemons([], 252, 12);
           break;
         case "Generation 4 (Sinnoh)":
-          this.Generation = "Generation 4 (Sinnoh)";
+          this.generation = "Generation 4 (Sinnoh)";
           this.fetchPokemons([], 387, 12);
           break;
         case "Generation 5 (Unys)":
-          this.Generation = "Generation 5 (Unys)";
+          this.generation = "Generation 5 (Unys)";
           this.fetchPokemons([], 494, 12);
           break;
         case "Generation 6 (Kalos)":
-          this.Generation = "Generation 6 (Kalos)";
+          this.generation = "Generation 6 (Kalos)";
           this.fetchPokemons([], 650, 12);
           break;
         case "Generation 7 (Alola)":
-          this.Generation = "Generation 7 (Alola)";
+          this.generation = "Generation 7 (Alola)";
           this.fetchPokemons([], 722, 12);
           break;
         case "Generation 8 (Galar & Hisui)":
-          this.Generation = "Generation 8 (Galar & Hisui)";
+          this.generation = "Generation 8 (Galar & Hisui)";
           this.fetchPokemons([], 810, 12);
           break;
         case "Generation 9 (Paldea)":
-          this.Generation = "Generation 9 (Paldea)";
+          this.generation = "Generation 9 (Paldea)";
           this.fetchPokemons([], 906, 12);
           break;
           default:
-            this.Generation = "Generation 1 (Kanto)";
+            this.generation = "Generation 1 (Kanto)";
             this.fetchPokemons([], 1, 12);
+      }
+    },
+    sortPokemons(newSort) {
+      switch (newSort) {
+        case "A-Z":
+          this.sort = "A-Z";
+          this.pokemonList = this.pokemonList.sort((a, b) => {
+            return a.name.localeCompare(b.name)
+          })
+          break;
+        case "Z-A":
+          this.sort = "Z-A";
+          this.pokemonList = this.pokemonList.sort((a, b) => {
+            return b.name.localeCompare(a.name)
+          })
+          break;
+        case "Ascending number":
+          this.sort = "Ascending number";
+          this.pokemonList = this.pokemonList.sort((a, b) => {
+            return a.id - b.id
+          })
+          break;
+          case "Descending number":
+          this.sort = "Descending number";
+          this.pokemonList = this.pokemonList.sort((a, b) => {
+            return b.id - a.id
+          })
+          break;
+          default:
+            this.sort = "Ascending number";
+            this.pokemonList = this.pokemonList.sort((a, b) => {
+              return a.id - b.id
+            })
       }
     }
   }
