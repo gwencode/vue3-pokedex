@@ -14,47 +14,7 @@ const generation = ref(pokemonStore.Generation);
 
 watch(generation, (newGeneration) => {
   console.log(newGeneration);
-  switch (newGeneration) {
-    case "Generation 1 (Kanto)":
-      pokemonStore.Generation = "Generation 1 (Kanto)";
-      pokemonStore.fetchPokemons([], 1, 12);
-      break;
-    case "Generation 2 (Johto)":
-      pokemonStore.Generation = "Generation 2 (Johto)";
-      pokemonStore.fetchPokemons([], 152, 12);
-      break;
-    case "Generation 3 (Hoenn)":
-      pokemonStore.Generation = "Generation 3 (Hoenn)";
-      pokemonStore.fetchPokemons([], 252, 12);
-      break;
-    case "Generation 4 (Sinnoh)":
-      pokemonStore.Generation = "Generation 4 (Sinnoh)";
-      pokemonStore.fetchPokemons([], 387, 12);
-      break;
-    case "Generation 5 (Unys)":
-      pokemonStore.Generation = "Generation 5 (Unys)";
-      pokemonStore.fetchPokemons([], 494, 12);
-      break;
-    case "Generation 6 (Kalos)":
-      pokemonStore.Generation = "Generation 6 (Kalos)";
-      pokemonStore.fetchPokemons([], 650, 12);
-      break;
-    case "Generation 7 (Alola)":
-      pokemonStore.Generation = "Generation 7 (Alola)";
-      pokemonStore.fetchPokemons([], 722, 12);
-      break;
-    case "Generation 8 (Galar & Hisui)":
-      pokemonStore.Generation = "Generation 8 (Galar & Hisui)";
-      pokemonStore.fetchPokemons([], 810, 12);
-      break;
-    case "Generation 9 (Paldea)":
-      pokemonStore.Generation = "Generation 9 (Paldea)";
-      pokemonStore.fetchPokemons([], 906, 12);
-      break;
-      default:
-        pokemonStore.Generation = "Generation 1 (Kanto)";
-        pokemonStore.fetchPokemons([], 1, 12);
-  }
+  pokemonStore.filterGeneration(newGeneration);
 });
 
 </script>
