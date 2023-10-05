@@ -34,45 +34,87 @@ const searchById = () => {
     alert("Please enter a Pokemon number between 1 and 1010");
     return;
   }
+  pokemonStore.pokemonDetails = {};
+  pokemonStore.nextPokemon = {};
+  pokemonStore.previousPokemon = {};
   router.push(`pokemon/${pokemonNumber}`);
 }
 
-
+const searchByName = async () => {
+  const pokemonNameInput = document.getElementById('pokemonNameInput');
+  const pokemonName = pokemonNameInput.value.toLowerCase().trim();
+  if (pokemonName === "") {
+    alert("Please enter a Pokemon name");
+    return;
+  }
+  pokemonStore.pokemonDetails = {};
+  pokemonStore.nextPokemon = {};
+  pokemonStore.previousPokemon = {};
+  const response = await pokemonStore.fetchByName(pokemonName);
+  if (response === null) {
+    alert("Pokemon not found");
+    return;
+  } else {
+    router.push(`pokemon/${response.id}`);
+  }
+}
 
 </script>
 
 <template>
   <HomeBanner />
   <main>
-    <section class="d-flex justify-content-between align-items-start">
-      <div style="width: 25%">
-      <v-combobox
-        label="Select a Generation"
-        :items="pokemonStore.generations"
-        v-model="generation"
-      ></v-combobox>
-      </div>
+    <section>
 
-      <div style="width: 25%" >
-        <label for="pokemonNumberInput" id="label-input-number">Search by number</label>
-        <div class="input-group-number">
-          <input type="number" class="form-control input-number" id="pokemonNumberInput"
-            min="1" max="1010" @keyup.enter="searchById"
-          placeholder="Number between 1 & 1010">
-          <button class="btn" id="btn-search" @click="searchById">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
+      <div class="d-flex justify-content-between mb-3">
+
+        <div style="width: 33%" >
+          <label for="pokemonNumberInput" class="label-input-search">Search by number</label>
+          <div class="input-group-search">
+            <input type="number" class="form-control input-search" id="pokemonNumberInput"
+              min="1" max="1010" @keyup.enter="searchById"
+            placeholder="Number between 1 & 1010">
+            <button class="btn" id="btn-search" @click="searchById">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
         </div>
+
+        <div style="width: 33%" >
+          <label for="pokemonNameInput" class="label-input-search">Search by name</label>
+          <div class="input-group-search">
+            <input type="text" class="form-control input-search" id="pokemonNameInput"
+              min="1" max="1010" @keyup.enter="searchByName"
+            placeholder="...">
+            <button class="btn" id="btn-search" @click="searchByName">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+        </div>
+
       </div>
 
-      <div style="width: 25%">
-        <v-combobox
-        label="Sort Pokemons by"
-        :items="pokemonStore.sorts"
-        v-model="sort"
-      ></v-combobox>
-    </div>
-  </section>
+      <div class="d-flex justify-content-between">
+
+        <div style="width: 33%">
+          <v-combobox
+            label="Select a Generation"
+            :items="pokemonStore.generations"
+            v-model="generation"
+          ></v-combobox>
+        </div>
+
+        <div style="width: 33%">
+          <v-combobox
+          label="Sort Pokemons by"
+          :items="pokemonStore.sorts"
+          v-model="sort"
+          ></v-combobox>
+        </div>
+
+      </div>
+
+    </section>
 
     <h1>{{ pokemonStore.generation }}</h1>
     <v-divider></v-divider>
@@ -103,19 +145,19 @@ h1 {
   margin: 0;
 }
 
-.input-group-number {
+.input-group-search {
   display: flex;
   align-items: center;
   justify-content: space-between;
   /* background-color: #EEEEEE; */
 }
 
-#label-input-number {
+.label-input-search {
  padding: 0 0.375rem 2px;
  color: darkgray;
 }
 
-.input-number {
+.input-search {
 	width: 75%;
   font-size: 0.75em;
 }

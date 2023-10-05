@@ -171,6 +171,18 @@ export const usePokemonStore = defineStore('PokemonStore', {
               return a.id - b.id
             })
       }
-    }
+    },
+    async fetchByName(name) {
+      const response = await fetch("https://pokeapi.co/api/v2/pokemon/" + name)
+      // .then(response => response.json())
+      .then(response => {
+        if (response.status === 404) {
+          return null
+        } else {
+          return response.json()
+        }
+      })
+      return response
+    },
   }
 })
