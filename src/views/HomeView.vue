@@ -1,5 +1,5 @@
 <script setup>
-import { ref, watch } from 'vue'
+import { ref, watch, onMounted } from 'vue'
 import HomeBanner from '@/components/HomeBanner.vue'
 import PokemonCard from '@/components/PokemonCard.vue'
 import SearchInputs from '@/components/SearchInputs.vue'
@@ -9,9 +9,18 @@ import ScrollToTopButton from '@/components/ScrollToTopButton.vue'
 import { usePokemonStore } from '@/stores/PokemonStore'
 
 const pokemonStore = usePokemonStore()
-if (pokemonStore.pokemonList.length === 0) {
-  pokemonStore.fetchPokemons([], 1, 12);
-}
+
+onMounted(() => {
+  if (pokemonStore.pokemonList.length === 0) {
+    const showMoreButton = document.getElementById("show-more-button");
+    const loader = document.getElementById("loader");
+    showMoreButton.classList.add('d-none');
+    loader.classList.remove('d-none');
+    console.log(showMoreButton);
+    console.log(loader);
+    pokemonStore.fetchPokemons([], 1, 12);
+  }
+});
 
 </script>
 
