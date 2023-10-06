@@ -21,18 +21,22 @@ watch(sort, (newSort) => {
 <template>
   <div class="d-flex justify-content-between">
     <div style="width: 33%">
-      <v-combobox
+      <v-select
         label="Select a Generation"
         :items="pokemonStore.generations"
         v-model="generation"
-        ></v-combobox>
+        variant="solo-filled"
+        hide-details
+        ></v-select>
     </div>
     <div style="width: 33%">
-      <v-combobox
+      <v-select
       label="Sort Pokemons by"
       :items="pokemonStore.sorts"
       v-model="sort"
-      ></v-combobox>
+      variant="solo-filled"
+      hide-details
+      ></v-select>
     </div>
   </div>
 </template>

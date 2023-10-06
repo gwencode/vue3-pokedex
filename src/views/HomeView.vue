@@ -3,7 +3,7 @@ import { ref, watch } from 'vue'
 import HomeBanner from '@/components/HomeBanner.vue'
 import PokemonCard from '@/components/PokemonCard.vue'
 import SearchInputs from '@/components/SearchInputs.vue'
-import ComboboxInputs from '@/components/ComboboxInputs.vue'
+import SelectInputs from '@/components/SelectInputs.vue'
 import ScrollToTopButton from '@/components/ScrollToTopButton.vue'
 
 import { usePokemonStore } from '@/stores/PokemonStore'
@@ -20,7 +20,7 @@ if (pokemonStore.pokemonList.length === 0) {
   <main>
     <section id="search-sort-pokemons">
       <SearchInputs />
-      <ComboboxInputs />
+      <SelectInputs />
     </section>
 
     <h1>{{ pokemonStore.generation }}</h1>
