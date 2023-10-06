@@ -41,27 +41,32 @@ const pokemonGeneration = (pokemon) => {
       {{ capitalize(pokemon.name) }}
       <span id="pokemon-id">N°{{ pokemon.id }}</span>
     </h1>
-    <h6>{{ pokemonGeneration(pokemon) }}</h6>
+    <h5>{{ pokemonGeneration(pokemon) }}</h5>
   </section>
 
   <section id="pokemon-details" class="row">
 
-    <div class="col-12 col-md-6">
+    <div class="pb-3 col-10 col-sm-7 col-md-6 col-lg-4 order-1 order-lg-2 justify-content-center">
       <img :src="pokemon.picture" alt="">
     </div>
 
-    <div id="pokemon-info" class="col-12 col-md-6">
+    <section class="pb-3 col-12 col-md-6 col-lg-4 order-3 order-md-2 order-lg-3" id="pokemon-stats">
+      <h3>Stats</h3>
+      <PokemonStats :stats="pokemon.stats"/>
+    </section>
 
-      <section class="py-3" id="pokemon-sizes">
-        <h2>Sizes</h2>
-        <div class="d-flex justify-content-center gap-3">
+    <div id="pokemon-info" class="pb-3 col-12 col-md-6 col-lg-4 order-2 order-md-3 order-lg-1 mx-auto">
+
+      <section id="pokemon-sizes" class="pb-2">
+        <h3>Sizes</h3>
+        <div class="d-flex justify-content-around gap-0 gam-sm-3 gap-lg-0 flex-column flex-sm-row flex-lg-column">
           <p><i class="fa-solid fa-ruler"></i>Height: <strong>{{ pokemon.height / 10 }} m</strong></p>
           <p><i class="fa-solid fa-weight-hanging"></i>Weight: <strong>{{ pokemon.weight / 10 }} kg</strong></p>
         </div>
       </section>
 
-      <section class="py-3" id="pokemon-elements">
-        <h2>Types</h2>
+      <section id="pokemon-elements">
+        <h3>Types</h3>
         <div class="pokemon-types d-flex justify-content-center gap-3">
           <v-card-subtitle v-for="element in pokemon.type"
             :key="`pokemon-${element}`" :class="element" class="element big-element">
@@ -69,13 +74,8 @@ const pokemonGeneration = (pokemon) => {
           </v-card-subtitle>
         </div>
       </section>
-
-      <section class="py-3" id="pokemon-stats">
-        <h2>Stats</h2>
-        <PokemonStats :stats="pokemon.stats"/>
-      </section>
-
     </div>
+
   </section>
 </template>
 
@@ -91,11 +91,11 @@ h1 {
 }
 
 
-h2 {
+h3 {
   color: #30A7D7;
 }
 
-h6 {
+h5 {
   color: #30A7D7;
   font-weight: lighter;
 }
@@ -118,7 +118,7 @@ img {
   background-color: #F2F2F2;
 }
 
-#pokemon-info {
+#pokemon-info, #pokemon-stats {
   text-align: center;
 }
 

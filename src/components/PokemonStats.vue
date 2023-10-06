@@ -48,14 +48,14 @@ defineProps({
       bg-color="blue-grey"
       color="#9a0eea"
       height="25"
-    ><strong>{{ stats[3].name.toUpperCase() }}</strong></v-progress-linear>
+    ><strong>{{ stats[3].name.toUpperCase().replace("-", " ") }}</strong></v-progress-linear>
     <br>
     <v-progress-linear
       :model-value="stats[4].value / 255 * 100"
       bg-color="blue-grey"
       color="#1a237e"
       height="25"
-    ><strong>{{ stats[4].name.toUpperCase() }}</strong></v-progress-linear>
+    ><strong>{{ stats[4].name.toUpperCase().replace("-", " ") }}</strong></v-progress-linear>
     <br>
     <v-progress-linear
       :model-value="stats[5].value / 255 * 100"
