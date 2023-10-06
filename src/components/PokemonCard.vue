@@ -1,5 +1,6 @@
 <script setup>
 import { defineProps} from "vue";
+import { RouterLink } from 'vue-router'
 import { capitalize } from '@/composables/useCapitalizeFonction'
 
 defineProps({

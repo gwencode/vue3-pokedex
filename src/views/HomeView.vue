@@ -44,6 +44,7 @@ if (pokemonStore.pokemonList.length === 0) {
     <div>
       <ScrollToTopButton />
     </div>
+
   </main>
 
 

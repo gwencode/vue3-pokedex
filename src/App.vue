@@ -1,9 +1,11 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
+import Navbar from '@/components/Navbar.vue'
 </script>
 
 <template>
   <div class="my-container">
+    <Navbar />
     <Suspense>
       <router-view></router-view>
       <template v-slot:fallback>Loading Pokemon data...</template>
@@ -22,15 +24,21 @@ import { RouterLink, RouterView } from 'vue-router'
   background-color: white;
 }
 
-@media (min-width: 768px) {
-  .my-container {
-    max-width: 90vw;
+main {
+  padding: 8px;
+  min-height: 100vh;
+}
+
+@media (min-width: 576px) {
+  main {
+    padding: 16px;
   }
 }
 
-main {
-  padding: 16px;
-  min-height: 100vh;
+@media (min-width: 768px) {
+  main {
+    padding: 16px 32px;
+  }
 }
 
 .link-no-deco {
