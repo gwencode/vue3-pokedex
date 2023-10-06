@@ -39,7 +39,12 @@ if (pokemonStore.pokemonList.length === 0) {
       </v-row>
     </v-container>
     <div class="big-blue-button">
-      <v-btn elevated size="x-large" @click="pokemonStore.fetchPokemons(pokemonStore.pokemonList, pokemonStore.pokemonIndex, 18)">SHOW MORE POKEMONS</v-btn>
+      <v-btn id="show-more-button" elevated size="x-large"
+        @click="pokemonStore.fetchPokemons(pokemonStore.pokemonList, pokemonStore.pokemonIndex, 18)"
+      >
+        SHOW MORE POKEMONS
+      </v-btn>
+      <div id="loader" class="d-none"></div>
     </div>
     <div>
       <ScrollToTopButton />
@@ -56,6 +61,21 @@ h1 {
   text-align: center;
   color: #30A7D7;
   margin: 0;
+}
+
+#loader {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  border-top-color: #111827;
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 10px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
 
 </style>

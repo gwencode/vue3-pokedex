@@ -7,14 +7,12 @@ const pokemonStore = usePokemonStore()
 const generation = ref(pokemonStore.generation);
 
 watch(generation, (newGeneration) => {
-  console.log(newGeneration);
   pokemonStore.filterGeneration(newGeneration);
 });
 
 const sort = ref(pokemonStore.sort);
 
 watch(sort, (newSort) => {
-  console.log(newSort);
   pokemonStore.sortPokemons(newSort);
 });
 

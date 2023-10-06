@@ -30,6 +30,14 @@ export const usePokemonStore = defineStore('PokemonStore', {
   // Methods
   actions: {
     async fetchPokemons(pokemonList, start_index, number) {
+      // Loader Logic
+      const showMoreButton = document.getElementById("show-more-button");
+      const loader = document.getElementById("loader");
+      if (showMoreButton && loader) {
+        showMoreButton.classList.add('d-none');
+        loader.classList.remove('d-none');
+      }
+
       this.pokemonList = pokemonList;
       let newList = [];
       for (let i = start_index; i <= start_index + number - 1 ; i++) {
@@ -55,12 +63,16 @@ export const usePokemonStore = defineStore('PokemonStore', {
         this.sortPokemons(this.sort);
       }
       this.pokemonIndex = start_index + number;
-      console.log(this.pokemonIndex)
+
+      // Remove Loader
+      if (showMoreButton && loader) {
+        showMoreButton.classList.remove('d-none');
+        loader.classList.add('d-none');
+      }
     },
     async fetchDetails(id) {
       const response = await fetch("https://pokeapi.co/api/v2/pokemon/" + id)
       .then(response => response.json())
-      // console.log(response);
       this.pokemonDetails.id = response.id;
       this.pokemonDetails.name = response.forms[0].name;
       this.pokemonDetails.height = response.height;
@@ -80,7 +92,6 @@ export const usePokemonStore = defineStore('PokemonStore', {
       } else {
         this.pokemonDetails.picture = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/" + this.pokemonDetails.id + ".png"
       }
-      // console.log(this.pokemonDetails)
     },
     async nextPokemonDetails(id) {
       const nextId = (id === 1010) ? 1 : parseInt(id, 10) + 1;
