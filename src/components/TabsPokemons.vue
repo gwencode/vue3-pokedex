@@ -48,7 +48,7 @@ defineProps({
 
 <style scoped>
 .pokemon-tabs {
-  padding-top: 24px;
+  padding: 24px 8px 0;
   display: flex;
   justify-content: space-between;
 }
@@ -56,6 +56,21 @@ defineProps({
 a {
   width: 50%;
   margin: 0 4px;
+}
+
+@media (max-width: 400px) {
+  .pokemon-tabs {
+    padding: 32px 8px 0;
+  }
+  h2 {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  h2 {
+    font-size: 20px;
+  }
 }
 
 i {
