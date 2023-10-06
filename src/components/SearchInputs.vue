@@ -21,7 +21,7 @@ const searchById = () => {
 const searchByName = async () => {
   const pokemonNameInput = document.getElementById('pokemonNameInput');
   const pokemonName = pokemonNameInput.value.toLowerCase().trim();
-  if (pokemonName === "") {
+  if (pokemonName === "" || Number.isInteger(parseInt(pokemonName))) {
     alert("Please enter a Pokemon name");
     return;
   }
