@@ -39,9 +39,9 @@ const searchByName = async () => {
 </script>
 
 <template>
-  <div class="d-flex justify-content-between mb-3">
+  <div class="row justify-content-between mb-3">
 
-    <div style="width: 33%" >
+    <div class="col-10 col-sm-6 col-md-5 col-lg-4" >
       <label for="pokemonNumberInput" class="label-input-search">Search by number</label>
       <div class="input-group-search">
         <input type="number" class="form-control input-search" id="pokemonNumberInput"
@@ -53,7 +53,7 @@ const searchByName = async () => {
       </div>
     </div>
 
-    <div style="width: 33%" >
+    <div class="col-10 col-sm-6 col-md-5 col-lg-4" >
       <label for="pokemonNameInput" class="label-input-search">Search by name</label>
       <div class="input-group-search">
         <input type="text" class="form-control input-search" id="pokemonNameInput"

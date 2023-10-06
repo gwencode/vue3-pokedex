@@ -27,7 +27,7 @@ onMounted(() => {
 <template>
   <HomeBanner />
   <main>
-    <section id="search-sort-pokemons">
+    <section id="search-sort-pokemons" class="mb-3">
       <SearchInputs />
       <SelectInputs />
     </section>
