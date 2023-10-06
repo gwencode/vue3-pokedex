@@ -7,7 +7,7 @@ import { RouterLink } from 'vue-router'
   <nav class="navbar navbar-dark navbar-expand-lg navbar-lewagon fixed-top">
     <div class="navbar-links">
       <router-link :to="`/`" class="navbar-brand">Home</router-link>
-      <h1>Vue 3 Pokedex</h1>
+      <h2>Vue 3 Pokedex</h2>
       <router-link :to="`/about`" class="navbar-brand">About</router-link>
     </div>
   </nav>
@@ -15,7 +15,7 @@ import { RouterLink } from 'vue-router'
 </template>
 
 <style scoped>
-h1 {
+h2 {
   color: #30A7D7;
   margin: 0;
   font-size: 1.5rem;
@@ -58,5 +58,14 @@ h1 {
 
 .navbar-margin {
   margin-bottom: 56px;
+}
+
+@media (max-width: 400px) {
+  a {
+    font-size: 16px;
+  }
+  h2 {
+    font-size: 20px;
+  }
 }
 </style>

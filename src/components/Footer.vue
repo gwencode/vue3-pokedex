@@ -11,7 +11,7 @@ import { RouterLink } from 'vue-router'
           <li class="nav-item"><router-link :to="`/`" class="nav-link px-2">Home</router-link></li>
           <li class="nav-item"><router-link :to="`/about`" class="nav-link px-2">About</router-link></li>
         </ul>
-        <p class="text-center">Vue 3 Pokedex | Site réalisé par <a href="https://troopl.com/gwendal-lebris" class="fw-bold"  target="_blank">Gwendal Le Bris</a></p>
+        <p class="text-center">Vue 3 Pokedex | Réalisé par <a href="https://troopl.com/gwendal-lebris" class="fw-bold"  target="_blank">Gwendal Le Bris</a></p>
       </footer>
     </div>
   </div>
