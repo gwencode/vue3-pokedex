@@ -8,7 +8,7 @@ import { RouterLink } from 'vue-router'
     <div class="navbar-links">
       <router-link :to="`/`" class="navbar-brand">Home</router-link>
       <h1>Vue 3 Pokedex</h1>
-      <router-link :to="`/pokemon/5`" class="navbar-brand">About</router-link>
+      <router-link :to="`/about`" class="navbar-brand">About</router-link>
     </div>
   </nav>
 
