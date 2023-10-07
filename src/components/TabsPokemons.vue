@@ -23,11 +23,13 @@ defineProps({
       class="link-no-deco"
     >
       <button class="button-tab previous">
-        <h2>
+        <h5>
           <i class="fa-solid fa-circle-arrow-left"></i>
           <span class="pokemon-id">N°{{ previousPokemon.id }}</span>
+        </h5>
+        <h5>
           {{ capitalize(previousPokemon.name) }}
-        </h2>
+        </h5>
       </button>
     </router-link>
     <router-link
@@ -36,11 +38,13 @@ defineProps({
       class="link-no-deco"
       >
       <button class="button-tab next">
-        <h2>
-          {{ capitalize(nextPokemon.name) }}
+        <h5>
           <span class="pokemon-id">N°{{ nextPokemon.id }}</span>
           <i class="fa-solid fa-circle-arrow-right"></i>
-        </h2>
+        </h5>
+        <h5>
+          {{ capitalize(nextPokemon.name) }}
+        </h5>
       </button>
   </router-link>
   </div>
@@ -62,7 +66,7 @@ a {
   .pokemon-tabs {
     padding: 32px 8px 0;
   }
-  h2 {
+  h5 {
     font-size: 16px;
   }
 }
