@@ -57,7 +57,7 @@ h2 {
 }
 
 .navbar-margin {
-  margin-bottom: 56px;
+  margin-bottom: 48px;
 }
 
 @media (max-width: 400px) {

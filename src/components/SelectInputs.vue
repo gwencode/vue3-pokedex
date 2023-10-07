@@ -20,7 +20,7 @@ watch(sort, (newSort) => {
 
 <template>
   <div class="row justify-content-between gap-3 gap-sm-0">
-    <div class="col-10 col-sm-6 col-md-5 col-lg-4">
+    <div class="mx-auto col-10 col-sm-6 col-md-5 col-lg-4">
       <v-select
         label="Select a Generation"
         :items="pokemonStore.generations"
@@ -29,7 +29,7 @@ watch(sort, (newSort) => {
         hide-details
         ></v-select>
     </div>
-    <div class="col-10 col-sm-6 col-md-5 col-lg-4">
+    <div class="mx-auto col-10 col-sm-6 col-md-5 col-lg-4">
       <v-select
       label="Sort Pokemons by"
       :items="pokemonStore.sorts"
