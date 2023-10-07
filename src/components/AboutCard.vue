@@ -27,7 +27,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="col-6 p-2">
+  <div class="col-12 col-md-6 p-2">
     <v-card
     :title="title"
     :text="description"
@@ -35,7 +35,7 @@ defineProps({
     :prepend-avatar="logo"
     >
       <template v-slot:prepend>
-        <v-avatar size="x-large"></v-avatar>
+        <v-avatar size="80"></v-avatar>
       </template>
       <v-card-actions>
         <v-btn><a :href="link" target="_blank">{{ button }} WEBSITE</a></v-btn>
