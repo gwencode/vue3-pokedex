@@ -16,7 +16,7 @@
 <style scoped>
 .banner {
   background-size: cover;
-  background-position: center;
+  background-position: 50% 65%;
   padding: 65px 1rem;
   text-align: center;
 }
@@ -24,7 +24,7 @@
 .banner h2 {
   margin: 0;
   color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 3px 3px 3px rgba(0,0,0,0.6);
   font-size: 24px;
   font-weight: bold;
 }
@@ -33,7 +33,7 @@
   font-size: 16px;
   color: white;
   opacity: .7;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 3px 3px 3px rgba(0,0,0,0.6);
   margin: 0.5rem;
 }
 </style>
