@@ -46,7 +46,7 @@ const pokemonGeneration = (pokemon) => {
 
   <section id="pokemon-details" class="row">
 
-    <div class="pb-3 col-10 col-sm-7 col-md-6 col-lg-4 order-1 order-lg-2 justify-content-center">
+    <div class="pb-3 mx-auto col-10 col-sm-7 col-md-6 col-lg-4 order-1 order-lg-2 justify-content-center">
       <img :src="pokemon.picture" alt="">
     </div>
 
@@ -93,6 +93,7 @@ h1 {
 
 h3 {
   color: #30A7D7;
+  margin-bottom: 1rem;
 }
 
 h5 {
