@@ -1,14 +1,15 @@
 <script setup>
-import { ref, watch } from 'vue'
+import { ref, watch, onMounted, onBeforeUnmount } from 'vue'
 import { usePokemonStore } from '@/stores/PokemonStore'
 import TabsPokemons from '@/components/TabsPokemons.vue'
 import PokemonInfo from '@/components/PokemonInfo.vue'
 // import { findPokemon } from '@/composables/useFindPokemon'
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 
 const pokemonStore = usePokemonStore()
 
 const route = useRoute();
+const router = useRouter();
 
 const id = ref(parseInt(route.params.id, 10));
 
@@ -27,6 +28,37 @@ pokemonStore.nextPokemonDetails(id.value);
 const updateId = (newId) => {
   id.value = newId;
 }
+
+const handleKeydown = (e) => {
+  if (e.key === 'ArrowRight') {
+    if (id.value === 1010) {
+      router.push("/pokemon/1");
+      updateId(1)
+    } else {
+      router.push("/pokemon/" + (id.value + 1));
+      updateId(id.value + 1)
+    }
+  }
+  if (e.key === 'ArrowLeft') {
+    if (id.value === 1) {
+      router.push("/pokemon/1010");
+      updateId(1010)
+    } else {
+      router.push("/pokemon/" + (id.value - 1));
+      updateId(id.value - 1)
+    }
+  }
+}
+
+onMounted(() => {
+  window.addEventListener('keydown', handleKeydown);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('keydown', handleKeydown);
+});
+
+
 
 </script>
 
