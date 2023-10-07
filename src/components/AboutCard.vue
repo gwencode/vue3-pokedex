@@ -34,7 +34,7 @@ defineProps({
         <v-avatar size="x-large"></v-avatar>
       </template>
       <v-card-actions>
-        <v-btn><a :href="link">WEBSITE</a></v-btn>
+        <v-btn><a :href="link" target="_blank">WEBSITE</a></v-btn>
       </v-card-actions>
     </v-card>
   </div>
