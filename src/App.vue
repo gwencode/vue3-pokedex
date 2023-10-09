@@ -16,9 +16,8 @@ import Footer from '@/components/Footer.vue'
 </template>
 
 <style>
-
 #app {
-  background-color: #EEEEEE;
+  background-color: #eeeeee;
 }
 
 .my-container {
@@ -48,13 +47,13 @@ main {
 }
 
 .big-blue-button {
-    text-align: center;
-    padding: 16px 0
+  text-align: center;
+  padding: 16px 0;
 }
 
 .big-blue-button button {
-  background-color: #30A7D7;
-  color: white
+  background-color: #30a7d7;
+  color: white;
 }
 
 /* header {
@@ -118,5 +117,4 @@ nav a:first-of-type {
     margin-top: 1rem;
   }
 } */
-
 </style>

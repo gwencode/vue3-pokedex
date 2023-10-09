@@ -1,18 +1,17 @@
 <script setup>
-import { defineProps} from "vue";
+import { defineProps } from 'vue'
 import { capitalize } from '@/composables/useCapitalizeFonction'
 
 defineProps({
-  previousPokemon : {
-      type : Object,
-      required : true
+  previousPokemon: {
+    type: Object,
+    required: true
   },
-  nextPokemon : {
-      type : Object,
-      required : true
+  nextPokemon: {
+    type: Object,
+    required: true
   }
 })
-
 </script>
 
 <template>
@@ -36,7 +35,7 @@ defineProps({
       :to="`/pokemon/${nextPokemon.id}`"
       @click="$emit('update-id', nextPokemon.id)"
       class="link-no-deco"
-      >
+    >
       <button class="button-tab next">
         <h5>
           <span class="pokemon-id">N°{{ nextPokemon.id }}</span>
@@ -46,7 +45,7 @@ defineProps({
           {{ capitalize(nextPokemon.name) }}
         </h5>
       </button>
-  </router-link>
+    </router-link>
   </div>
 </template>
 
@@ -95,7 +94,7 @@ i {
 }
 
 .button-tab:hover {
-  background-color: #30A7D7;
+  background-color: #30a7d7;
 }
 
 .previous {

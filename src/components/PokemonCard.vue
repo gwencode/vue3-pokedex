@@ -1,24 +1,20 @@
 <script setup>
-import { defineProps} from "vue";
+import { defineProps } from 'vue'
 import { RouterLink } from 'vue-router'
 import { capitalize } from '@/composables/useCapitalizeFonction'
 
 defineProps({
-  pokemon : {
-      type : Object,
-      required : true
-    }
+  pokemon: {
+    type: Object,
+    required: true
+  }
 })
-
 </script>
 
 <template>
   <router-link :to="`/pokemon/${pokemon.id}`" class="link-no-deco">
     <div class="pokemon-card">
-      <v-card
-        class="mx-auto"
-        max-width="200px"
-      >
+      <v-card class="mx-auto" max-width="200px">
         <v-img
           :src="pokemon.picture"
           height="200px"
@@ -33,8 +29,12 @@ defineProps({
         </v-card-title>
 
         <div class="pokemon-types">
-          <v-card-subtitle v-for="element in pokemon.types"
-            :key="`pokemon-${element}`" :class="element" class="element">
+          <v-card-subtitle
+            v-for="element in pokemon.types"
+            :key="`pokemon-${element}`"
+            :class="element"
+            class="element"
+          >
             {{ capitalize(element) }}
           </v-card-subtitle>
         </div>
@@ -44,13 +44,12 @@ defineProps({
 </template>
 
 <style scoped>
-
 .pokemon-card {
-  padding: 8px
+  padding: 8px;
 }
 
 .picture-pokemon-card-background {
-  background-color: #F2F2F2;
+  background-color: #f2f2f2;
 }
 
 .pokemon-id {

@@ -4,18 +4,17 @@ import { usePokemonStore } from '@/stores/PokemonStore'
 
 const pokemonStore = usePokemonStore()
 
-const generation = ref(pokemonStore.generation);
+const generation = ref(pokemonStore.generation)
 
 watch(generation, (newGeneration) => {
-  pokemonStore.filterGeneration(newGeneration);
-});
+  pokemonStore.filterGeneration(newGeneration)
+})
 
-const sort = ref(pokemonStore.sort);
+const sort = ref(pokemonStore.sort)
 
 watch(sort, (newSort) => {
-  pokemonStore.sortPokemons(newSort);
-});
-
+  pokemonStore.sortPokemons(newSort)
+})
 </script>
 
 <template>
@@ -27,20 +26,18 @@ watch(sort, (newSort) => {
         v-model="generation"
         variant="solo-filled"
         hide-details
-        ></v-select>
+      ></v-select>
     </div>
     <div class="mx-auto col-10 col-sm-6 col-md-5 col-lg-4">
       <v-select
-      label="Sort Pokemons by"
-      :items="pokemonStore.sorts"
-      v-model="sort"
-      variant="solo-filled"
-      hide-details
+        label="Sort Pokemons by"
+        :items="pokemonStore.sorts"
+        v-model="sort"
+        variant="solo-filled"
+        hide-details
       ></v-select>
     </div>
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

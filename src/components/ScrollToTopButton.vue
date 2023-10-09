@@ -1,35 +1,34 @@
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 
-const scrollTopButton = ref(null);
+const scrollTopButton = ref(null)
 
 const handleScroll = () => {
-  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop
 
   if (scrollTop > 400) {
-    scrollTopButton.value.classList.remove("d-none");
+    scrollTopButton.value.classList.remove('d-none')
   } else {
-    scrollTopButton.value.classList.add("d-none");
+    scrollTopButton.value.classList.add('d-none')
   }
-};
+}
 
 onMounted(() => {
-  scrollTopButton.value = document.getElementById("scroll-to-top-button");
-  window.addEventListener("scroll", handleScroll);
-});
+  scrollTopButton.value = document.getElementById('scroll-to-top-button')
+  window.addEventListener('scroll', handleScroll)
+})
 
 onBeforeUnmount(() => {
-  window.removeEventListener("scroll", handleScroll);
-});
+  window.removeEventListener('scroll', handleScroll)
+})
 
 const scrollTop = () => {
-  event.preventDefault();
+  event.preventDefault()
   window.scrollTo({
     top: 0,
-    behavior: "smooth"
-  });
-};
-
+    behavior: 'smooth'
+  })
+}
 </script>
 
 <template>
@@ -39,14 +38,13 @@ const scrollTop = () => {
 </template>
 
 <style scoped>
-
 #scroll-to-top-button {
   position: fixed;
   bottom: 20px;
   right: 20px;
   z-index: 999;
   text-decoration: none;
-  color: #30A7D7;
+  color: #30a7d7;
   background-color: transparent;
   font-size: 1.5rem;
 }
@@ -56,5 +54,4 @@ const scrollTop = () => {
     right: 7vw;
   }
 }
-
 </style>

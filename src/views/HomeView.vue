@@ -12,16 +12,15 @@ const pokemonStore = usePokemonStore()
 
 onMounted(() => {
   if (pokemonStore.pokemonList.length === 0) {
-    const showMoreButton = document.getElementById("show-more-button");
-    const loader = document.getElementById("loader");
-    showMoreButton.classList.add('d-none');
-    loader.classList.remove('d-none');
-    console.log(showMoreButton);
-    console.log(loader);
-    pokemonStore.fetchPokemons([], 1, 12);
+    const showMoreButton = document.getElementById('show-more-button')
+    const loader = document.getElementById('loader')
+    showMoreButton.classList.add('d-none')
+    loader.classList.remove('d-none')
+    console.log(showMoreButton)
+    console.log(loader)
+    pokemonStore.fetchPokemons([], 1, 12)
   }
-});
-
+})
 </script>
 
 <template>
@@ -41,14 +40,18 @@ onMounted(() => {
           v-for="pokemon in pokemonStore.pokemonList"
           :key="`pokemon-${pokemon.id}`"
           cols="12"
-          sm="6" md="4"
+          sm="6"
+          md="4"
         >
           <PokemonCard :pokemon="pokemon" />
         </v-col>
       </v-row>
     </v-container>
     <div class="big-blue-button">
-      <v-btn id="show-more-button" elevated size="x-large"
+      <v-btn
+        id="show-more-button"
+        elevated
+        size="x-large"
         @click="pokemonStore.fetchPokemons(pokemonStore.pokemonList, pokemonStore.pokemonIndex, 18)"
       >
         SHOW MORE POKEMONS
@@ -58,17 +61,13 @@ onMounted(() => {
     <div>
       <ScrollToTopButton />
     </div>
-
   </main>
-
-
 </template>
 
 <style scoped>
-
 h1 {
   text-align: center;
-  color: #30A7D7;
+  color: #30a7d7;
   margin: 0;
 }
 
@@ -84,7 +83,8 @@ h1 {
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
-
 </style>

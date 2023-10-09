@@ -11,12 +11,11 @@ import { RouterLink } from 'vue-router'
       <router-link :to="`/about`" class="navbar-brand">About</router-link>
     </div>
   </nav>
-
 </template>
 
 <style scoped>
 h2 {
-  color: #30A7D7;
+  color: #30a7d7;
   margin: 0;
   font-size: 1.5rem;
   font-weight: 500;
@@ -25,7 +24,7 @@ h2 {
 }
 
 .navbar-lewagon {
-  background: #EEEEEE;
+  background: #eeeeee;
 }
 
 .navbar-links {

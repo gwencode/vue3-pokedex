@@ -21,20 +21,20 @@ export default createVuetify({
     defaultSet: 'fa',
     aliases,
     sets: {
-      fa,
-    },
-  },
+      fa
+    }
+  }
 })
 
 // Bootstrap
-import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.css'
 
 const app = createApp(App)
 const pinia = createPinia()
 
 const vuetify = createVuetify({
   components,
-  directives,
+  directives
 })
 
 app.use(router)
