@@ -68,7 +68,7 @@ const searchByName = async () => {
           min="1"
           max="1010"
           @keyup.enter="searchByName"
-          placeholder="..."
+          placeholder="Ex: Pikachu"
         />
         <button class="btn" id="btn-search" @click="searchByName">
           <i class="fa-solid fa-magnifying-glass"></i>

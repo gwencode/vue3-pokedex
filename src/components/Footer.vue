@@ -13,7 +13,7 @@ import { RouterLink } from 'vue-router'
           </li>
         </ul>
         <p class="text-center">
-          Vue 3 Pokedex | Réalisé par
+          Vue 3 Pokedex | Done by
           <a href="https://troopl.com/gwendal-lebris" class="fw-bold" target="_blank"
             >Gwendal Le Bris</a
           >
